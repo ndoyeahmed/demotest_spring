@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.model.Cours;
 import com.example.demo.repositories.CoursRepository;
 import com.example.demo.repositories.MatiereRepository;
 import lombok.extern.java.Log;
@@ -44,7 +45,13 @@ public class CoursController {
 
     @GetMapping("cours/{code}/{matiere}")
     public ResponseEntity<?> coursByCodeProfAndMatiere(@PathVariable String code, @PathVariable String matiere) {
-        return ResponseEntity.ok(Objects.requireNonNull(coursRepository.findCoursByMatiere_LibelleAndProfesseur_Code(code, matiere)
-                .orElse(null)));
+        Cours cours = coursRepository.findCoursByMatiere_LibelleAndProfesseur_Code(matiere, code)
+                .orElse(null);
+        if (cours != null) {
+            return ResponseEntity.ok(cours);
+        } else {
+            cours = new Cours();
+            return ResponseEntity.ok(cours);
+        }
     }
 }

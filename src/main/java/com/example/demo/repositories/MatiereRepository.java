@@ -10,6 +10,6 @@ import java.util.Optional;
 
 @Repository
 public interface MatiereRepository extends JpaRepository<Matiere, Long> {
-    @Query("select m from Matiere m where m.id not in (select c.matiere.id from Cours c where c.matiere is not null )")
+    @Query("select m from Matiere m where m not in (select c.matiere from Cours c)")
     Optional<List<Matiere>> findAllByMatiereNotInCours();
 }
