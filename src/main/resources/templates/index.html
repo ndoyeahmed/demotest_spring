@@ -11,29 +11,48 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-            <form id="personne-add" class="form-group">
-                <div class="form-group">
-                    <label for="nompersonne">Nom</label>
-                    <input id="nompersonne" name="nompersonne" type="text" class="form-control"/>
-                </div>
-                <div class="form-group">
-                    <label for="prenompersonne">Prenom
-                    </label>
+            <form id="personne-add" >
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="codeProf">Prof</label>
+                            <input id="codeProf" required name="codeProf" type="text" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="matiere">Matiere
+                            </label>
 
-                    <input id="prenompersonne" name="prenompersonne"
-                           required="required" type="text" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <button onclick="savePersonne()" class="btn btn-success" id="add-personne" type="button" >Enregistrer</button>
+                            <input id="matiere" name="matiere"
+                                   required="required" type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>.
+                            </label>
+                            <button onclick="searchCours()" class="btn btn-success" id="add-personne" type="button" >Rechercher</button>
+                        </div>
+                    </div>
                 </div>
 
             </form>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="feedback"></div>
+                </div>
+                <div class="col-md-12">
+                    <div id="coursTables"></div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
 <script src="/js/bootstrap.bundle.js"></script>
-<script src="/js/personne.js"></script>
 <script src="/js/jquery.js"></script>
+<script src="/js/exam.js"></script>
 </body>
 </html>
