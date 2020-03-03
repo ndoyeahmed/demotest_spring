@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 import com.example.demo.model.Personne;
 import com.example.demo.repositories.PersonneRepository;
+import com.example.demo.services.PersonneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -11,25 +12,28 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/personnes")
+@RequestMapping("/")
 public class PersonneController {
 
-    @Autowired
-    private PersonneRepository personneRepository;
+    private PersonneService personneService;
+
+    public PersonneController(PersonneService personneService) {
+        this.personneService = personneService;
+    }
 
     @GetMapping
     public String index() {
         return "index";
     }
 
-    @GetMapping("/all")
+    @GetMapping("personnes")
     public ResponseEntity<?> findAll() {
-        return ResponseEntity.ok(personneRepository.findAll());
+        return ResponseEntity.ok(personneService.findAll());
     }
 
-    @PostMapping
+    @PostMapping("personnes")
     public ResponseEntity<?> addPersonne(@RequestBody Personne personne) {
-        personneRepository.save(personne);
+        personneService.savePersonne(personne);
         return ResponseEntity.ok(true);
     }
 }

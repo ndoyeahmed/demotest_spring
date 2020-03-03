@@ -36,7 +36,7 @@ function savePersonne() {
 
 function personneList() {
     $.ajax({
-        url: "/personnes/all",
+        url: "/personnes",
         type: 'GET',
         success: function (x) {
             console.log(x);

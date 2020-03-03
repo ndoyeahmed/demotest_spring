@@ -2,22 +2,37 @@
 <html lang="en">
 <head>
     <title>Personne</title>
+
+    <link href="/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- Font Awesome -->
+    <link href="/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+            <form id="personne-add" class="form-group">
+                <div class="form-group">
+                    <label for="nompersonne">Nom</label>
+                    <input id="nompersonne" name="nompersonne" type="text" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="prenompersonne">Prenom
+                    </label>
 
-<form id="personne-add">
-    <label for="nompersonne">Nom</label>
-    <input id="nompersonne" name="nompersonne" type="text"/>
-    <label for="prenompersonne">Prenom
-    </label>
+                    <input id="prenompersonne" name="prenompersonne"
+                           required="required" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <button onclick="savePersonne()" class="btn btn-success" id="add-personne" type="button" >Enregistrer</button>
+                </div>
 
-    <input id="prenompersonne" name="prenompersonne"
-           required="required" type="text">
-    <button onclick="savePersonne()" class="btn btn-success" id="add-personne" type="button" >Enregistrer</button>
+            </form>
+        </div>
+    </div>
+</div>
 
-</form>
-
-
+<script src="/js/bootstrap.bundle.js"></script>
 <script src="/js/personne.js"></script>
 <script src="/js/jquery.js"></script>
 </body>
